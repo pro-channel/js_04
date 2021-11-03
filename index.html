@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>プログラミングちゃんねる</title>
+    <style>
+      li.meat_item {
+        background-color: #ff0000;
+      }
+    </style>
+    <script>
+      function addFunc () {
+        document.getElementById("fish_list").remove();
+        var newLi = document.createElement("li");
+        newLi.innerText = "猪肉";
+        document.getElementById("meat_list").appendChild(newLi);
+      }
+
+      function runFunc () {
+          var fish = document.getElementById("fish_list");
+          var maguro = fish.children[1];
+          maguro.className = "meat_item";
+          maguro.setAttribute("tabindex", 5);
+          maguro.innerText = "まぐろ";
+      }
+
+      window.onload = () => {
+        var meatItems = document.getElementsByClassName("meat_item");
+        var liItems = document.getElementsByTagName("li");
+
+        document.getElementById("run_button").onclick = runFunc;
+        document.getElementById("add_button").onclick = addFunc;
+      }
+    </script>
+  </head>
+  <body>
+    <ul id="fish_list">
+      <li>カツオ</li>
+      <li>マグロ</li>
+      <li>たい</li>
+    </ul>
+    <ul id="meat_list">
+      <li class="meat_item">牛肉</li>
+      <li class="meat_item">豚肉</li>
+      <li class="meat_item">鶏肉</li>
+    </ul>
+    <button id="run_button">RUN</button>
+    <button id="add_button">ADD DEL</button>
+  </body>
+</html>
